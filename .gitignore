@@ -5,3 +5,15 @@ flask_venv/
 instance/
 
 # anything else you want git to ignore, add here:
+crime_api_cache.sqlite
+GTTP_Cates.py
+myapp.py.save.1
+test.py
+Cats_test1.py
+myapp.py
+test.py.save
+credentials
+myapp.py.save
+records.json
+WW6.py
+
