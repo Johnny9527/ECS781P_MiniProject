@@ -6,4 +6,3 @@
 
 3. In "AddNewCat.py", I deployed some sample data of cats and then used a "GET" method to call those pre-built data. In addition, a "POST" and a "DELETE" method are also included within it, allowing users to create new cat information or delete an existed cat data.
 
-4. 
