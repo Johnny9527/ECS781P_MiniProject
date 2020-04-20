@@ -3,10 +3,10 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/getrandomcatimages', methods=['GET'])
+@app.route('/getrandomcatimages', methods=['GET'])    # Method GET.
 def test():
     conn = http.client.HTTPSConnection("api.thecatapi.com")
-    headers = { 'x-api-key': "DEMO-API-KEY" }
+    headers = { 'x-api-key': "DEMO-API-KEY" }    # Call the API.
 
     conn.request("GET", "/v1/images/search", headers=headers)
 
