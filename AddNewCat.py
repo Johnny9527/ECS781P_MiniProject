@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, json, request
 
+# Cat list dataset.
 all_cats = [
         {
                 "name": "catlist",
@@ -119,11 +120,11 @@ all_cats = [
 
 app = Flask(__name__)
 
-@app.route('/catlist', methods=['GET'])
+@app.route('/catlist', methods=['GET'])    # Get all cat list.
 def getcatlist():
     return jsonify(all_cats)
 
-@app.route('/<name>/<title>', methods=['GET'])
+@app.route('/<name>/<title>', methods=['GET'])    # Get a specific cat details.
 def get_catsdetails_by_name_and_title(name,title):
     categories = [AllCats['categories'] for AllCats in all_cats if AllCats['name'] == name]
     if len(categories)==0:
@@ -135,7 +136,7 @@ def get_catsdetails_by_name_and_title(name,title):
         else:
             return jsonify(details[0]), 200
 
-@app.route('/addnewcat', methods=['POST'])
+@app.route('/addnewcat', methods=['POST'])    # Add a new cat to the list.
 def add_new_cat():
     if not request.json or not 'name' in request.json:
         return jsonify({'error': 'A name is needed.'}), 400
@@ -152,7 +153,7 @@ def add_new_cat():
     all_cats.append(new_cat)
     return jsonify({'message': 'created: /addnewcat/{}'.format(new_cat['name'])}), 201
 
-@app.route('/catlist/<catname>', methods=['DELETE'])
+@app.route('/catlist/<catname>', methods=['DELETE'])    # Delete a specific cat from the cat list.
 def delete_a_catname(catname):
     matching_cats = [name for name in all_cats if name['name'] == catname]
     if len(matching_cats)==0:
